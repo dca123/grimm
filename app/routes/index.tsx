@@ -94,7 +94,7 @@ export default function Index() {
                     id: "goal",
                   })}
                   className="p-2 px-4 rounded placeholder:text-purple-300 font-semibold text-2xl focus:outline-none focus:border-purple-900 focus:ring-2 focus:ring-purple-900"
-                  placeholder="Feel more in control"
+                  placeholder="Can feel more in control"
                   rows={4}
                 />
                 {error && (
