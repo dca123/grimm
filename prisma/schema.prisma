@@ -9,3 +9,10 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Story {
+  id      String @id @default(cuid())
+  persona String
+  intent  String
+  goal    String
+}
