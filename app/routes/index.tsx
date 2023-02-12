@@ -34,7 +34,7 @@ export const action = async ({ request }: ActionArgs) => {
 
 export default function Index() {
   return (
-    <div className="bg-gradient-to-br from-purple-400 to-purple-500 rounded p-12 m-auto max-w-3xl mx-auto">
+    <div className="m-auto mx-auto max-w-3xl rounded bg-violet-800 p-12">
       <ValidatedForm
         className="flex flex-col items-center"
         validator={validator}
@@ -44,7 +44,7 @@ export default function Index() {
           <Input name="persona">
             {({ getInputProps, error }) => (
               <div className="flex flex-col items-start space-y-1">
-                <label className="text-xl font-medium text-purple-900">
+                <label className="text-xl font-medium text-purple-50">
                   As a
                 </label>
                 <input
@@ -52,11 +52,11 @@ export default function Index() {
                     id: "persona",
                   })}
                   type="text"
-                  className="p-2 px-4 rounded placeholder:text-purple-300 font-semibold text-2xl focus:outline-none focus:border-purple-900 focus:ring-2 focus:ring-purple-900"
+                  className="rounded bg-violet-700 p-2 px-4 text-2xl font-semibold text-slate-50 shadow-inner placeholder:text-violet-400 focus:border-purple-400 focus:outline-none focus:ring-1 focus:ring-purple-400"
                   placeholder="Procrastinator"
                 />
                 {error && (
-                  <span className="text-pink-700 text-sm">{error}</span>
+                  <span className="text-sm text-pink-300">{error}</span>
                 )}
               </div>
             )}
@@ -65,19 +65,19 @@ export default function Index() {
           <Input name="intent">
             {({ getInputProps, error }) => (
               <div className="flex flex-col items-start space-y-1">
-                <label className="text-xl font-medium text-purple-900">
+                <label className="text-xl font-medium text-purple-50">
                   I want to
                 </label>
                 <textarea
                   {...getInputProps({
                     id: "intent",
                   })}
-                  className="p-2 px-4 rounded placeholder:text-purple-300 font-semibold text-2xl focus:outline-none focus:border-purple-900 focus:ring-2 focus:ring-purple-900"
+                  className="rounded bg-violet-700 p-2 px-4 text-2xl font-semibold text-slate-50 shadow-inner placeholder:text-violet-400 focus:border-purple-400 focus:outline-none focus:ring-1 focus:ring-purple-400"
                   placeholder="Organize my work"
                   rows={4}
                 />
                 {error && (
-                  <span className="text-pink-700 text-sm">{error}</span>
+                  <span className="text-sm text-pink-300">{error}</span>
                 )}
               </div>
             )}
@@ -86,19 +86,19 @@ export default function Index() {
           <Input name="goal">
             {({ getInputProps, error }) => (
               <div className="flex flex-col items-start space-y-1">
-                <label className="text-xl font-medium text-purple-900">
+                <label className="text-xl font-medium text-purple-50">
                   So that I
                 </label>
                 <textarea
                   {...getInputProps({
                     id: "goal",
                   })}
-                  className="p-2 px-4 rounded placeholder:text-purple-300 font-semibold text-2xl focus:outline-none focus:border-purple-900 focus:ring-2 focus:ring-purple-900"
+                  className="rounded bg-violet-700 p-2 px-4 text-2xl font-semibold text-slate-50 shadow-inner placeholder:text-violet-400 focus:border-purple-400 focus:outline-none focus:ring-1 focus:ring-purple-400"
                   placeholder="Can feel more in control"
                   rows={4}
                 />
                 {error && (
-                  <span className="text-pink-700 text-sm">{error}</span>
+                  <span className="text-sm text-pink-300">{error}</span>
                 )}
               </div>
             )}
@@ -106,7 +106,7 @@ export default function Index() {
         </div>
         <Submit>
           {(isSubmitting) => (
-            <button className="p-2 px-4 bg-gray-900 rounded-lg text-white mt-6 hover:shadow-lg font-light text-xl max-w-fit">
+            <button className="mt-6 max-w-fit rounded-lg bg-purple-600 p-2 px-4 text-xl font-light text-white hover:shadow-lg">
               {isSubmitting ? "Submitting..." : "Create Story"}
             </button>
           )}

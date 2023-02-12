@@ -1,4 +1,4 @@
-import { Story as StoryData } from "@prisma/client";
+import type { Story as StoryData } from "@prisma/client";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { db } from "~/utils/db.server";
@@ -8,11 +8,11 @@ export const loader = async () => json(await db.story.findMany());
 export default function Stories() {
   const stories = useLoaderData<typeof loader>();
   return (
-    <div className="py-8 h-full flex flex-col">
-      <h1 className="font-normal text-purple-300 text-3xl text-center">
+    <div className="flex h-full flex-col py-8">
+      <h1 className="text-center text-3xl font-normal text-purple-200">
         Stories
       </h1>
-      <div className="grid md:grid-cols-3 grid-cols-1 w-full gap-12 pt-8">
+      <div className="grid w-full grid-cols-1 gap-12 pt-8 md:grid-cols-3">
         {stories.map((story, i) => (
           <Story key={i} {...story} />
         ))}
@@ -23,24 +23,15 @@ export default function Stories() {
 
 const Story = ({ goal, intent, persona }: StoryData) => {
   return (
-    <div className="bg-purple-300 rounded p-8 px-10 shadow-purple-500 shadow-sm">
-      <p className="inline leading-10 text-2xl font-bold text-purple-500">
-        As a{" "}
+    <div className="flex flex-col space-y-2 rounded bg-violet-800 p-8 px-10 shadow-sm">
+      <p className="inline text-2xl font-bold  text-violet-300">
+        As a <span className="text-violet-50">{persona},</span>
       </p>
-      <p className="inline leading-10 text-2xl font-bold text-purple-900">
-        {persona},{" "}
+      <p className="inline text-2xl font-bold  text-violet-300">
+        I want to <span className="text-violet-50">{intent},</span>
       </p>
-      <p className="inline leading-10 text-2xl font-bold text-purple-500">
-        I want to{" "}
-      </p>
-      <p className="inline leading-10 text-2xl font-bold text-purple-900">
-        {intent},{" "}
-      </p>
-      <p className="inline leading-10 text-2xl font-bold text-purple-500">
-        So that I{" "}
-      </p>
-      <p className="inline leading-10 text-2xl font-bold text-purple-900">
-        {goal}
+      <p className="inline text-2xl font-bold  text-violet-300">
+        So that I <span className="text-violet-50">{goal}</span>
       </p>
     </div>
   );
