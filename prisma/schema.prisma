@@ -11,8 +11,35 @@ datasource db {
 }
 
 model Story {
+  id            String          @id @default(cuid())
+  persona       String
+  intent        String
+  goal          String
+  jiraId        String?
+  JiraComment   JiraComment[]
+  GithubComment GithubComment[]
+  Comment       Comment[]
+}
+
+model Comment {
   id      String @id @default(cuid())
-  persona String
-  intent  String
-  goal    String
+  content String
+  storyId String
+  Story   Story? @relation(fields: [storyId], references: [id])
+}
+
+model JiraComment {
+  id      String  @id @default(cuid())
+  content String
+  jiraId  String
+  Story   Story?  @relation(fields: [storyId], references: [id])
+  storyId String?
+}
+
+model GithubComment {
+  id       String  @id @default(cuid())
+  content  String
+  githubId String
+  Story    Story?  @relation(fields: [storyId], references: [id])
+  storyId  String?
 }

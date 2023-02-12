@@ -24,13 +24,13 @@ export default function Stories() {
 const Story = ({ goal, intent, persona }: StoryData) => {
   return (
     <div className="flex flex-col space-y-2 rounded bg-violet-800 p-8 px-10 shadow-sm">
-      <p className="inline text-2xl font-bold  text-violet-300">
+      <p className="inline text-2xl font-bold  text-violet-400">
         As a <span className="text-violet-50">{persona},</span>
       </p>
-      <p className="inline text-2xl font-bold  text-violet-300">
+      <p className="inline text-2xl font-bold  text-violet-400">
         I want to <span className="text-violet-50">{intent},</span>
       </p>
-      <p className="inline text-2xl font-bold  text-violet-300">
+      <p className="inline text-2xl font-bold  text-violet-400">
         So that I <span className="text-violet-50">{goal}</span>
       </p>
     </div>
